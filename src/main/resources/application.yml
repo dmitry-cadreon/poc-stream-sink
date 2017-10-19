@@ -1,0 +1,20 @@
+spring:
+  cloud:
+    stream:
+      bindings:
+        input:
+          destination: ha.sink.out
+          content-type: application/json
+          group: campaign
+          binder: rabbit1
+      binders:
+        rabbit1:
+          type: rabbit
+          environment:
+            spring:
+              rabbitmq:
+                username: cm_admin
+                password: Cadre0n2017
+                addresses: 34.209.181.225,34.215.148.120,34.212.90.206
+server:
+  port: 8083
